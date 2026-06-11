@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- TELA INICIAL -->
+    <section id="home-screen">
+
+        <header>
+            <h1>🎵 Music Studio</h1>
+            <p>Crie suas músicas diretamente no navegador</p>
+        </header>
+
+        <div class="project-controls">
+            <input
+                type="text"
+                id="project-name"
+                placeholder="Nome do projeto">
+
+            <button id="create-project-btn">
+                Criar Projeto
+            </button>
+        </div>
+
+        <div class="projects-container">
+            <h2>Projetos Salvos</h2>
+
+            <div id="projects-list">
+                <!-- Projetos serão inseridos via JS -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- EDITOR MUSICAL -->
+    <section id="editor-screen" class="hidden">
+
+        <header class="editor-header">
+
+            <div>
+                <h2 id="current-project-name">
+                    Projeto
+                </h2>
+            </div>
+
+            <div class="editor-buttons">
+
+                <button id="play-btn">
+                    ▶ Play
+                </button>
+
+                <button id="stop-btn">
+                    ⏹ Stop
+                </button>
+
+                <button id="save-btn">
+                    💾 Salvar
+                </button>
+
+                <button id="back-btn">
+                    ← Voltar
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Sequenciador -->
+        <div class="sequencer-container">
+
+            <div class="grid-wrapper">
+
+                <!-- Cabeçalho dos tempos -->
+                <div class="timeline">
+
+                    <div class="empty-cell"></div>
+
+                    <div class="time-cell">1</div>
+                    <div class="time-cell">2</div>
+                    <div class="time-cell">3</div>
+                    <div class="time-cell">4</div>
+
+                    <div class="time-cell">5</div>
+                    <div class="time-cell">6</div>
+                    <div class="time-cell">7</div>
+                    <div class="time-cell">8</div>
+
+                    <div class="time-cell">9</div>
+                    <div class="time-cell">10</div>
+                    <div class="time-cell">11</div>
+                    <div class="time-cell">12</div>
+
+                    <div class="time-cell">13</div>
+                    <div class="time-cell">14</div>
+                    <div class="time-cell">15</div>
+                    <div class="time-cell">16</div>
+
+                </div>
+
+                <!-- Grade musical -->
+                <div id="music-grid">
+
+                    <!-- DÓ -->
+                    <div class="note-row">
+
+                        <div class="note-label">
+                            Dó
+                        </div>
+
+                        <div class="cell" data-note="C" data-step="0"></div>
+                        <div class="cell" data-note="C" data-step="1"></div>
+                        <div class="cell" data-note="C" data-step="2"></div>
+                        <div class="cell" data-note="C" data-step="3"></div>
+
+                        <div class="cell" data-note="C" data-step="4"></div>
+                        <div class="cell" data-note="C" data-step="5"></div>
+                        <div class="cell" data-note="C" data-step="6"></div>
+                        <div class="cell" data-note="C" data-step="7"></div>
+
+                        <div class="cell" data-note="C" data-step="8"></div>
+                        <div class="cell" data-note="C" data-step="9"></div>
+                        <div class="cell" data-note="C" data-step="10"></div>
+                        <div class="cell" data-note="C" data-step="11"></div>
+
+                        <div class="cell" data-note="C" data-step="12"></div>
+                        <div class="cell" data-note="C" data-step="13"></div>
+                        <div class="cell" data-note="C" data-step="14"></div>
+                        <div class="cell" data-note="C" data-step="15"></div>
+
+                    </div>
+
+                    <!-- RÉ -->
+                    <div class="note-row">
+
+                        <div class="note-label">
+                            Ré
+                        </div>
+
+                        <div class="cell" data-note="D" data-step="0"></div>
+                        <div class="cell" data-note="D" data-step="1"></div>
+                        <div class="cell" data-note="D" data-step="2"></div>
+                        <div class="cell" data-note="D" data-step="3"></div>
+
+                        <div class="cell" data-note="D" data-step="4"></div>
+                        <div class="cell" data-note="D" data-step="5"></div>
+                        <div class="cell" data-note="D" data-step="6"></div>
+                        <div class="cell" data-note="D" data-step="7"></div>
+
+                        <div class="cell" data-note="D" data-step="8"></div>
+                        <div class="cell" data-note="D" data-step="9"></div>
+                        <div class="cell" data-note="D" data-step="10"></div>
+                        <div class="cell" data-note="D" data-step="11"></div>
+
+                        <div class="cell" data-note="D" data-step="12"></div>
+                        <div class="cell" data-note="D" data-step="13"></div>
+                        <div class="cell" data-note="D" data-step="14"></div>
+                        <div class="cell" data-note="D" data-step="15"></div>
+
+                    </div>
+
+                    <!-- MI -->
+                    <div class="note-row">
+
+                        <div class="note-label">
+                            Mi
+                        </div>
+
+                        <div class="cell" data-note="E" data-step="0"></div>
+                        <div class="cell" data-note="E" data-step="1"></div>
+                        <div class="cell" data-note="E" data-step="2"></div>
+                        <div class="cell" data-note="E" data-step="3"></div>
+
+                        <div class="cell" data-note="E" data-step="4"></div>
+                        <div class="cell" data-note="E" data-step="5"></div>
+                        <div class="cell" data-note="E" data-step="6"></div>
+                        <div class="cell" data-note="E" data-step="7"></div>
+
+                        <div class="cell" data-note="E" data-step="8"></div>
+                        <div class="cell" data-note="E" data-step="9"></div>
+                        <div class="cell" data-note="E" data-step="10"></div>
+                        <div class="cell" data-note="E" data-step="11"></div>
+
+                        <div class="cell" data-note="E" data-step="12"></div>
+                        <div class="cell" data-note="E" data-step="13"></div>
+                        <div class="cell" data-note="E" data-step="14"></div>
+                        <div class="cell" data-note="E" data-step="15"></div>
+
+                    </div>
+
+                    <!-- FÁ -->
+                    <div class="note-row">
+
+                        <div class="note-label">Fá</div>
+
+                        <div class="cell" data-note="F" data-step="0"></div>
+                        <div class="cell" data-note="F" data-step="1"></div>
+                        <div class="cell" data-note="F" data-step="2"></div>
+                        <div class="cell" data-note="F" data-step="3"></div>
+
+                        <div class="cell" data-note="F" data-step="4"></div>
+                        <div class="cell" data-note="F" data-step="5"></div>
+                        <div class="cell" data-note="F" data-step="6"></div>
+                        <div class="cell" data-note="F" data-step="7"></div>
+
+                        <div class="cell" data-note="F" data-step="8"></div>
+                        <div class="cell" data-note="F" data-step="9"></div>
+                        <div class="cell" data-note="F" data-step="10"></div>
+                        <div class="cell" data-note="F" data-step="11"></div>
+
+                        <div class="cell" data-note="F" data-step="12"></div>
+                        <div class="cell" data-note="F" data-step="13"></div>
+                        <div class="cell" data-note="F" data-step="14"></div>
+                        <div class="cell" data-note="F" data-step="15"></div>
+
+                    </div>
+
+                    <!-- SOL -->
+                    <div class="note-row">
+
+                        <div class="note-label">Sol</div>
+
+                        <div class="cell" data-note="G" data-step="0"></div>
+                        <div class="cell" data-note="G" data-step="1"></div>
+                        <div class="cell" data-note="G" data-step="2"></div>
+                        <div class="cell" data-note="G" data-step="3"></div>
+
+                        <div class="cell" data-note="G" data-step="4"></div>
+                        <div class="cell" data-note="G" data-step="5"></div>
+                        <div class="cell" data-note="G" data-step="6"></div>
+                        <div class="cell" data-note="G" data-step="7"></div>
+
+                        <div class="cell" data-note="G" data-step="8"></div>
+                        <div class="cell" data-note="G" data-step="9"></div>
+                        <div class="cell" data-note="G" data-step="10"></div>
+                        <div class="cell" data-note="G" data-step="11"></div>
+
+                        <div class="cell" data-note="G" data-step="12"></div>
+                        <div class="cell" data-note="G" data-step="13"></div>
+                        <div class="cell" data-note="G" data-step="14"></div>
+                        <div class="cell" data-note="G" data-step="15"></div>
+
+                    </div>
+
+                    <!-- LÁ -->
+                    <div class="note-row">
+
+                        <div class="note-label">Lá</div>
+
+                        <div class="cell" data-note="A" data-step="0"></div>
+                        <div class="cell" data-note="A" data-step="1"></div>
+                        <div class="cell" data-note="A" data-step="2"></div>
+                        <div class="cell" data-note="A" data-step="3"></div>
+
+                        <div class="cell" data-note="A" data-step="4"></div>
+                        <div class="cell" data-note="A" data-step="5"></div>
+                        <div class="cell" data-note="A" data-step="6"></div>
+                        <div class="cell" data-note="A" data-step="7"></div>
+
+                        <div class="cell" data-note="A" data-step="8"></div>
+                        <div class="cell" data-note="A" data-step="9"></div>
+                        <div class="cell" data-note="A" data-step="10"></div>
+                        <div class="cell" data-note="A" data-step="11"></div>
+
+                        <div class="cell" data-note="A" data-step="12"></div>
+                        <div class="cell" data-note="A" data-step="13"></div>
+                        <div class="cell" data-note="A" data-step="14"></div>
+                        <div class="cell" data-note="A" data-step="15"></div>
+
+                    </div>
+
+                    <!-- SI -->
+                    <div class="note-row">
+
+                        <div class="note-label">Si</div>
+
+                        <div class="cell" data-note="B" data-step="0"></div>
+                        <div class="cell" data-note="B" data-step="1"></div>
+                        <div class="cell" data-note="B" data-step="2"></div>
+                        <div class="cell" data-note="B" data-step="3"></div>
+
+                        <div class="cell" data-note="B" data-step="4"></div>
+                        <div class="cell" data-note="B" data-step="5"></div>
+                        <div class="cell" data-note="B" data-step="6"></div>
+                        <div class="cell" data-note="B" data-step="7"></div>
+
+                        <div class="cell" data-note="B" data-step="8"></div>
+                        <div class="cell" data-note="B" data-step="9"></div>
+                        <div class="cell" data-note="B" data-step="10"></div>
+                        <div class="cell" data-note="B" data-step="11"></div>
+
+                        <div class="cell" data-note="B" data-step="12"></div>
+                        <div class="cell" data-note="B" data-step="13"></div>
+                        <div class="cell" data-note="B" data-step="14"></div>
+                        <div class="cell" data-note="B" data-step="15"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
